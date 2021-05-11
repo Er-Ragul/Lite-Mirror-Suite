@@ -24,7 +24,7 @@ socket.on('YourId', (myId) => {
     peer = new Peer('software', {
         host: 'lite-mirror-suite.herokuapp.com',
         port: 3000,
-	    path: '/peerjs'
+	path: '/peerjs'
     })
     dataConnection()
     socket.emit('reserve_id', {name: 'software', id: myId})

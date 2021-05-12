@@ -24,7 +24,16 @@ socket.on('YourId', (myId) => {
     peer = new Peer('software', {
         host: 'https://lite-mirror-suite.herokuapp.com/',
         port: 3000,
-	path: '/peerjs'
+	path: '/peerjs',
+	config: {
+         'iceServers': [
+                { url: 'stun:stun1.l.google.com:19302' },
+                {
+                    url: 'turn:numb.viagenie.ca',
+                    credential: 'muazkh',
+                    username: 'webrtc@live.com'
+                }]
+            }
     })
     dataConnection()
     socket.emit('reserve_id', {name: 'software', id: myId})

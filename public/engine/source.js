@@ -30,9 +30,9 @@ socket.on('YourId', (myId) => {
          'iceServers': [
                 { url: 'stun:stun1.l.google.com:19302' },
                 {
-                    url: 'turn:numb.viagenie.ca',
-                    credential: 'muazkh',
-                    username: 'webrtc@live.com'
+                    url: 'turn:18.190.158.154:3478?transport=tcp',
+                    credential: 'ragul',
+                    username: 'ragul'
                 }]
             }
     })

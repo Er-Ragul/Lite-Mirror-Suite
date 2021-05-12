@@ -27,7 +27,7 @@ const startConnection = () => {
         tokenBox.remove()
         socket.emit('makeCall', token) 
         peer = new Peer(token.toString(), {
-            host: 'https://lite-mirror-suite.herokuapp.com/',
+            host: 'lite-mirror-suite.herokuapp.com',
             port: 3000,
             path: '/peerjs',
             config: {

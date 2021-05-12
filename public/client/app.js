@@ -30,6 +30,7 @@ const startConnection = () => {
             host: 'lite-mirror-suite.herokuapp.com',
             port: 3000,
             path: '/peerjs',
+            secure: true,
             config: {
             'iceServers': [
                 { url: 'stun:stun1.l.google.com:19302' },

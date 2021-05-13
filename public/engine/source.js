@@ -82,13 +82,24 @@ const dataConnection = () => {
 
 /* Mouse Click (Single click) function */
 const click = (pointer) => {
-    console.log('X : ' + pointer.x)
-    console.log('Y : ' + pointer.y)                    
-    var mouseCoordinates = pointer.x + ',' + pointer.y
-    fs.writeFile('./interface/mouse_pointer.txt', mouseCoordinates, function (err) {
-        if (err) throw err;
-        console.log('Replaced!');
-    });
+	if(typeof(command) === "object"){
+        console.log(typeof(command))
+        console.log('X : ' + command.x)
+        console.log('Y : ' + command.y)                    
+        var mouseCoordinates = command.x + ',' + command.y
+        fs.writeFile('./interface/mouse_pointer.txt', mouseCoordinates, function (err) {
+            if (err) throw err;
+            console.log('Mouse pointer updated !');
+        });
+    }
+    else if(typeof(command) === "string"){
+        console.log('Keys :', command)
+        var pencil = 'write' + ',' + command
+        fs.writeFile('./interface/key_events.txt', pencil, function (err) {
+            if (err) throw err;
+            console.log('String updated !');
+        });
+    }
 }
 
 /* Message sender function */

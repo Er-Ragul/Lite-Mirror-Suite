@@ -1,5 +1,5 @@
 # Lite-Mirror-Suite - Dev Server
-Lite-Mirror is a screen sharing application which was built with Electronjs and Python. Lite-Mirror-Suite is a signaling server which will handle both software and client. It helps to establish webRTC peer to peer connection between Software & Client.
+Lite-Mirror is a screen sharing application which was built with Electronjs and Python. Lite-Mirror-Suite is a signaling server which will helps to establish webRTC peer to peer connection between Software & Client.
 
 Test Reports :-
 Tested on 12/05/2021 👍 

@@ -14,6 +14,7 @@ let count = 0
 const socket = io.connect('/')
 const display = document.getElementById('display')
 const tokenBox = document.getElementById('tokenBox') 
+const maxBtn = document.getElementById('maxBtn')
 
 /* Connection Establishment Event */
 socket.on('YourId', (myId) => {
@@ -78,8 +79,9 @@ const createDisplay = (stream) => {
     setHeight = ms_height / Math.round(divided_height)
     display.width = setWidth
     display.height = setHeight
-    display.muted = true
+    //display.muted = true
     display.style.display = "block"
+    maxBtn.style.display = "block"
     display.srcObject = stream
     display.play()
 }
@@ -97,4 +99,33 @@ function mouseClick(e){
     let pointer = {x: Math.round(X), y: Math.round(Y)}
     console.log(pointer)
     dc.send(pointer)
+}
+
+/* Keyboard event function */
+const keyEvent = (e) => {
+    var keys = e.which || e.keyCode;
+    try {
+        dc.send(String.fromCharCode(keys))
+    } catch (error) {
+        console.log('Peer not initiated')
+    }
+}
+
+/* Display full screen size setter function */
+const fullScreen = () => {
+    if(display.requestFullscreen)
+    {
+        display.requestFullscreen();
+        display.controls = false;
+    } 
+    else if (display.mozRequestFullScreen) 
+    {
+        display.mozRequestFullScreen();
+        display.controls = false;
+    } 
+    else if (display.webkitRequestFullscreen) 
+    {
+        display.webkitRequestFullscreen();
+        display.controls = false;
+    }
 }
